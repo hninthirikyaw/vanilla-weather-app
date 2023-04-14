@@ -15,21 +15,28 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <div class="container weather-app ">
+    <div class="container weather-app">
       <div class="container weather">
-        <h1>New York</h1>
-        <ul>
-          <li>Friday 05:00</li>
-          <li>Clear</li>
-        </ul>
+        <div class="overview">
+          <h1>New York</h1>
+          <ul>
+            <li>Friday 05:00</li>
+            <li>Clear</li>
+          </ul>
+        </div>
         <div class="row">
-          <div class="col-6">
-            <img
+          <div class="col-6 weather-img float-left clearfix">
+            
+              <img
               src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
               alt="clear"
+              class=" float-left"
             />
-            12 °C | °F
-          </div>
+            
+           
+            <span class="weather-temperature  float-left">12</span> <small class="temperatures">°C | <a href="#">°F</a></small>
+           </div>
+          
           <div class="col-6">
             <ul>
               <li>Precipitation: 12%</li>
@@ -48,7 +55,6 @@
         </small>
       </div>
     </div>
-    
 
     <script src="./js/app.js"></script>
   </body>

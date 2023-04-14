@@ -28,7 +28,30 @@ li{
     border-radius: 10px;
 }
 
+.overview{
+    margin-bottom:  5px;
+}
+
+.weather-img img{
+    height: 64px;
+    width: 64px;
+
+}
+
 .weather{
     border: 1px solid #dadde1;
     padding: 20px;
+}
+
+.weather-temperature{
+    font-weight: 400;
+    font-size: 48px;
+line-height: 2;
+
+}
+
+.temperatures{
+    position: relative;
+    top:  -28px;
+    font-size: 16px;
 }
