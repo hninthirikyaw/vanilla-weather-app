@@ -25,19 +25,20 @@
           </ul>
         </div>
         <div class="row">
-          <div class="col-6 weather-img float-left clearfix">
-            
-              <img
-              src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-              alt="clear"
-              class=" float-left"
-            />
-            
-           
-            <span class="weather-temperature  float-left">12</span> <small class="temperatures">°C | <a href="#">°F</a></small>
-           </div>
-          
           <div class="col-6">
+            <div class="clearfix weather-temperature">
+              <img
+                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                alt="clear"
+              />
+              <span class="temperatures">
+                <strong class="float-left">12</strong>
+                <small >°C | <a href="#">°F</a></small>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-6 detail">
             <ul>
               <li>Precipitation: 12%</li>
               <li>Humidity: 0%</li>
@@ -48,7 +49,9 @@
       </div>
       <div>
         <small>
-          <a href="https://github.com/hninthirikyaw/vanilla-weather-app"
+          <a
+            href="https://github.com/hninthirikyaw/vanilla-weather-app"
+            target="_blank"
             >open-source code
           </a>
           by Hnin Thiri Kyaw
