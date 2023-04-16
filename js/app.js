@@ -34,6 +34,7 @@ function showTemperature(response) {
   temperatureElement.innerHTML = Math.round(
     response.data.daily[0].temperature.day
   );
+  celsiusTemperature = response.data.daily[0].temperature.day;
   cityElement.innerHTML = response.data.city;
   descriptionElement.innerText = response.data.daily[0].condition.description;
   humidityElement.innerHTML = response.data.daily[0].temperature.humidity;
@@ -48,15 +49,38 @@ function search(cityName) {
   let apiURL = `https://api.shecodes.io/weather/v1/forecast?query=${cityName}&key=${apiKey}&units=metric`;
   axios.get(apiURL).then(showTemperature);
 }
-search("London")
-
+search("London");
 
 function submitHandler(event) {
   event.preventDefault();
   let input = document.querySelector("#city-input");
-  search(input.value)
-  input.value = null
+  search(input.value);
+  input.value = null;
 }
 
+function displayCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  fahrenheitLink.classList.remove("active")
+  celsiusLink.classList.add("active")
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  celsiusLink.classList.remove("active")
+  fahrenheitLink.classList.add("active")
+  temperatureElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+}
+
+let celsiusTemperature = null;
+
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", submitHandler)
+searchForm.addEventListener("submit", submitHandler);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
