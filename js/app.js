@@ -91,34 +91,31 @@ function formatDay(timestamp) {
   return days[day];
 }
 
-function displayForecast(response) {
-  let forecast = response.data.daily;
-  console.log(response.data.daily);
-  let forecastHtml = document.querySelector("#forecast");
+// function displayForecast(response) {
+//   let forecast = response.data.daily;
+//   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+//   let forecastHtml = document.querySelector("#forecast");
 
-  forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
-      forecastHtml.innerHTML =
-        forecastHtml.innerHTML +
-        `<div class="col-2">
-  <div id="weather-forecast-date">
-  ${formatDay(forecastDay.time)}
- </div>
- <img src=${forecastDay.condition.icon_url} width="48" alt="">
- <div>
-  <span id="weather-forecast-max">${Math.round(
-    forecastDay.temperature.maximum
-  )}°</span>
-  <span id="weather-forecast-min">${Math.round(
-    forecastDay.temperature.minimum
-  )}°</span>
- </div>
- </div>
- `;
-    }
-  });
-  forecastHtml.innerHTML = forecastHtml.innerHTML;
-}
+//   forecast.forEach(function (forecastDay, index) {
+//     if (index < 6) {
+//       forecastHtml.innerHTML =
+//         forecastHtml.innerHTML +
+//         `<div class="col-2">
+//   <div id="weather-forecast-date">
+//   ${formatDay(forecastDay.time)}
+//  </div>
+//  <img src=${forecastDay.condition.icon_url} width="48" alt="">
+//  <div>
+//   <span id="weather-forecast-max">18°</span>
+//   <span id="weather-forecast-min">12°</span>
+//  </div>
+//  </div>
+//  `;
+// }
+//   });
+//   forecastHtml.innerHTML = forecastHtml.innerHTML;
+
+// }
 
 let celsiusTemperature = null;
 
