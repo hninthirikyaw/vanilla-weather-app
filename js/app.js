@@ -1,4 +1,3 @@
-
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -22,8 +21,6 @@ function formatDate(timestamp) {
   return `Last updated: ${day} ${hours}:${minutes}`;
 }
 
-
-
 function showTemperature(response) {
   // console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
@@ -45,7 +42,7 @@ function showTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.daily[0].time * 1000);
   weatherIcon.setAttribute("src", response.data.daily[0].condition.icon_url);
   weatherIcon.setAttribute("alt", response.data.daily[0].condition.icon);
-  getForecast(response.data.coordinates)
+  getForecast(response.data.coordinates);
 }
 
 function search(cityName) {
@@ -77,34 +74,48 @@ function displayFahrenheit(event) {
   temperatureElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
 }
 
-function getForecast(coordinates){
+function getForecast(coordinates) {
   let lat = coordinates.latitude;
   let lon = coordinates.longitude;
   let apiKey = "e4df2db09463dff4ode493te4146ad7b";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${lat}&lon=${lon}&key=${apiKey}&units=metric`
-  axios.get(apiUrl).then(displayForecast)
-  console.log(apiUrl)
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${lat}&lon=${lon}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+  console.log(apiUrl);
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily)
+  let forecast = response.data.daily;
+  console.log(response.data.daily);
   let forecastHtml = document.querySelector("#forecast");
-  
-  let days = ["Mon", "Tue", "Wed" ,"Thurs", "Fri", "Sat"];
-  days.forEach(function (day) {
-    forecastHtml.innerHTML =
-      forecastHtml.innerHTML +
-      `<div class="col-2">
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHtml.innerHTML =
+        forecastHtml.innerHTML +
+        `<div class="col-2">
   <div id="weather-forecast-date">
-  ${day}
+  ${formatDay(forecastDay.time)}
  </div>
- <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png" width="48" alt="">
+ <img src=${forecastDay.condition.icon_url} width="48" alt="">
  <div>
-  <span id="weather-forecast-max">18°</span>
-  <span id="weather-forecast-min">12°</span>
+  <span id="weather-forecast-max">${Math.round(
+    forecastDay.temperature.maximum
+  )}°</span>
+  <span id="weather-forecast-min">${Math.round(
+    forecastDay.temperature.minimum
+  )}°</span>
  </div>
  </div>
  `;
+    }
   });
   forecastHtml.innerHTML = forecastHtml.innerHTML;
 }
