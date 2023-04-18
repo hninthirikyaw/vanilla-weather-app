@@ -1,3 +1,5 @@
+
+
 .active {
   color: #222;
   cursor: default; 
@@ -44,7 +46,6 @@ li::first-letter {
 }
 
 
-
 .weather-app {
   max-width: 600px;
   margin: 30px auto;
@@ -66,7 +67,6 @@ li::first-letter {
 }
 
 .weather {
-  border: 1px solid #dadde1;
   padding: 20px;
 }
 

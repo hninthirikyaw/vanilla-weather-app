@@ -15,16 +15,25 @@
     />
     <title>Weather App</title>
   </head>
-  <body>
-    <div class=" weather-app">
-      <div class="container weather">
-        <form autocomplete="off" id="search-form" class=" mb-3">
+  <body class="p-3">
+    <div class="weather-app p-2">
+      <div class="container weather bg-light rounded-3 shadow-sm">
+        <form autocomplete="off" id="search-form" class="mb-3">
           <div class="row">
             <div class="col-9">
-              <input id="city-input" class=" form-control" type="search" placeholder="Type city...">
+              <input
+                id="city-input"
+                class="form-control"
+                type="search"
+                placeholder="Type city..."
+              />
             </div>
             <div class="col-3">
-              <input type="submit" value="search" class=" btn btn-primary w-100">
+              <input
+                type="submit"
+                value="search"
+                class="btn btn-primary w-100"
+              />
             </div>
           </div>
         </form>
@@ -38,34 +47,38 @@
         <div class="row">
           <div class="col-6">
             <div class="clearfix weather-temperature">
-              <img
-                src=""
-                alt="clear"
-                id="weather-icon"
-              />
+              <img src="" alt="clear" id="weather-icon" />
               <span class="temperatures">
                 <strong class="float-left" id="temperature">12</strong>
-                <small><a href="#" id="celsius-link" class=" text-decoration-none active">°C </a>| <a href="#" id="fahrenheit-link" class=" text-decoration-none">°F</a>
+                <small
+                  ><a
+                    href="#"
+                    id="celsius-link"
+                    class="text-decoration-none active"
+                    >°C </a
+                  >|
+                  <a href="#" id="fahrenheit-link" class="text-decoration-none"
+                    >°F</a
+                  >
                 </small>
               </span>
             </div>
-            </div>
+          </div>
           <div class="col-6 detail">
             <ul>
               <li>Humidity: <span id="humidity"></span> %</li>
               <li>Wind: <span id="wind"></span> km/h</li>
             </ul>
-          </div> 
+          </div>
         </div>
-        <div class=" weather-forecast row" id="forecast">
-
-        </div>
+        <div class="weather-forecast row" id="forecast"></div>
       </div>
-      <div>
+      <div class="footer mt-2">
         <small>
           <a
             href="https://github.com/hninthirikyaw/vanilla-weather-app"
-            target="_blank" class=" text-decoration-none"
+            target="_blank"
+            class="text-decoration-none"
             >Open-source code
           </a>
           by Hnin Thiri Kyaw
